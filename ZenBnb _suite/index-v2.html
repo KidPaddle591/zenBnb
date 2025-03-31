@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villes</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <form>
+            <!-- Informations personnelles -->
+            <label>Nom de Famille :
+                <input type="text" name="lastname" id="lastname" required>
+            </label>
+
+            <label>Prenom :
+                <input type="text" name="firstname" id="firstname" required>
+            </label>
+
+            <label>Adresse :
+                <input type="text" name="adress" id="adress" required>
+            </label>
+
+            <label>Email :
+                <input type="email" name="email" id="email" required>
+            </label>
+
+            <label>Téléphone :
+                <input type="tel" name="phone" id="phone" required>
+            </label>
+
+            <!-- Type de logement -->
+            <label for="logement">Type de logement :</label>
+            <select name="logement" id="logement" onchange="toggleLogementOptions()" required>
+                <option value="">-- Sélectionnez --</option>
+                <option value="maison">Maison</option>
+                <option value="appartement">Appartement</option>
+                <option value="loft">Loft</option>
+            </select>
+
+            <!-- Options spécifiques -->
+            <div id="options_logement" class="hidden">
+            <label><input type="checkbox" name="superhost"> Superhost</label>
+            <label><input type="checkbox" name="wifi"> Wifi</label>
+            </div>
+
+
+            <!-- Détails de séjour -->
+            <label>Nombre de personnes :
+            <input type="number" name="nombre_personnes" min="1" id="nombre_personnes" required>
+            </label>
+
+            <label>Date d’arrivée :
+            <input type="date" name="arrival" id="arrival" required>
+            </label>
+
+            <label>Date de départ :
+            <input type="date" name="departure" id="departure" required>
+            </label>
+
+            <!-- Services supplémentaires -->
+            <fieldset>
+                <legend>Services supplémentaires</legend>
+                <label><input type="checkbox" name="chauffeur" id="chauffeur">Chauffeur</label>
+                <label><input type="checkbox" name="breakfast" id="breakfast" onchange="toggleRegime()"> Petit-déjeuner</label>
+                <label><input type="checkbox" name="guide" id="guide"> Guide</label>
+            </fieldset>
+
+            <!-- Régime alimentaire -->
+            <div id="regime_container" class="hidden">
+            <legend>Régime alimentaire :</legend>
+                <label><input type="checkbox" name="vegetarian" id="vegetarian"> Végétarien</label>
+                <label><input type="checkbox" name="vegan" id="vegan"> Vegan</label>
+            </div>
+
+            <!-- Soumission -->
+            <button type="submit">Envoyer</button>
+        </form>
+        
+        <div id="result"></div>
+        <div id="summary"></div>
+    </div>
+    <div class="container hidden">
+        <div class="column">
+            <div id="logements"></div>
+            <div id="priceRange">
+                <div id="priceRange80"></div>
+                <div id="priceRange120"></div>
+                <div id="priceRange120+"></div>
+            </div>
+            <div id="tags">
+                <div id="tagCalme"></div>
+                <div id="tagLumineux"></div>
+                <div id="tagVueSurMer"></div>
+            </div>
+            <div id="wifi"></div>
+            <div id="superhost"></div>
+        </div>
+    </div>
+</body>
+<script src="/script-v2.js"></script>
+</html>
